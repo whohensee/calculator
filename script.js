@@ -23,6 +23,7 @@ function divide(a, b) {
 let calcLHS = null;
 let calcRHS = null;
 let calcOperator = null;
+let displayStr = "";
 
 function operate(lhs, rhs, operator) {
   let result = null;
@@ -43,5 +44,14 @@ function operate(lhs, rhs, operator) {
   return result;
 }
 
+function addToDisplay(str) {
+  if (typeof str === "string") {
+    displayStr = displayStr.concat(str);
+  } else {
+    console.log("ERROR IN addToDisplay");
+    return null;
+  }
+}
+
 // ----- Testing Area ----- //
-console.log(operate(15,6, "/"));
+// console.log(operate(15, 6, "/"));
