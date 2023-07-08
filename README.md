@@ -30,3 +30,24 @@ As follows:
 - It will be roughly a rectangle in center of page
 - display/text takes up the entire top of the rectangle
 - beneath the text are a 5x4 grid of buttons, mirroring my TI-83+ calculator
+
+### Stage 5 ###
+Time to get it working
+
+The process of a calculation goes
+-input (the user adds numbers and operators to the display)
+-parsing (the user hits 'enter' and the program parses the display str)
+-calculate (perform the necessary operations)
+-display (modify the display)
+
+In more detail
+-input
+    -uses function addToDisplay()
+    -user hits a button
+        -modified behavior if it is the first button hit
+        -modified behavior if it is an operator button
+        -default: add the text content of that button to displayStr
+-parsing
+    -uses function parseDisplayString()
+        -the goal is to find the first operator and break the str around it
+            -returns LHS, RHS, operator
