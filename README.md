@@ -51,3 +51,20 @@ In more detail
     -uses function parseDisplayString()
         -the goal is to find the first operator and break the str around it
             -returns LHS, RHS, operator
+
+# trying to break down the logic of recursive operate
+operate(lhs, rhs, operator)
+    if lhs has an operator (regex search):
+        lhs = operate(parseDisplayString(lhs))
+    if rhs has an operator (regex search):
+        rhs = operate(parseDisplayString(rhs))
+    (now the switch/case tree)
+    return result
+
+### note on 7/8
+got around some negative problems by changing " - " to " + -". It is important
+to note that for the purposes of future things like multiplication, the string
+" - " with whitespace around it is very different than "-" without, due to how
+I search for operations in parseDisplayString.
+    
+        
