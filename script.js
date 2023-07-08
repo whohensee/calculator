@@ -24,6 +24,8 @@ let calcLHS = null;
 let calcRHS = null;
 let calcOperator = null;
 let displayStr = "";
+// const operatorRegEx = /[+|-|x|/]/;
+const operatorRegEx = /[x+/-]/;
 const displayDefaultStr = "lets calculate";
 const display = document.querySelector("#calc-display");
 
@@ -60,6 +62,23 @@ function addToDisplay(str) {
   display.textContent = displayStr;
 }
 
+function parseDisplayString(str) {
+  // maybe eventually add if statement for search finds nothing
+  const opLoc = str.search(operatorRegEx);
+  const lhs = str.slice(0, opLoc - 1);
+  const rhs = str.slice(opLoc + 2);
+  const operator = str.charAt(opLoc);
+  return [lhs, rhs, operator];
+}
+
 // ----- Testing Area ----- //
 // console.log(operate(15, 6, "/"));
-console.log(display.textContent);
+// console.log(display.textContent);
+addToDisplay("1");
+addToDisplay("2");
+addToDisplay(" - ");
+addToDisplay("7");
+addToDisplay(" + ");
+addToDisplay("3");
+console.log(parseDisplayString(displayStr));
+console.log(operatorRegEx.toString())
